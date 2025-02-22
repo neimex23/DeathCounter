@@ -27,12 +27,14 @@ namespace Celeste.Mod.DeathCounter
             }
             On.Celeste.Level.LoadLevel += LoadLevel;
             On.Celeste.Player.Update += PlayerUpdate;
+            NamedPipeServer.StartServer(); //For ASC Connections
         }
 
         public override void Unload()
         {
             On.Celeste.Level.LoadLevel -= LoadLevel;
             On.Celeste.Player.Update -= PlayerUpdate;
+            NamedPipeServer.StopServer();
         }
 
         private void LoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
@@ -59,7 +61,7 @@ namespace Celeste.Mod.DeathCounter
 
         public static int GetTotalPlayerDeaths()
         {
-            return SaveData.Instance.TotalDeaths;
+            return DeathDisplay.TotalDeaths;
         }
 
     }

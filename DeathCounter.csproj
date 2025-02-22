@@ -56,6 +56,7 @@
     <Compile Include="Source\DeathCounterSettings .cs" />
     <Compile Include="Source\DeathDisplay.cs" />
     <Compile Include="Source\Main.cs" />
+    <Compile Include="Source\NamedPipeServer.cs" />
     <Compile Include="Source\TilesManager.cs" />
     <Compile Include="Source\Utils.cs" />
   </ItemGroup>
